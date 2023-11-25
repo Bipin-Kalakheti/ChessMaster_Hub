@@ -4,8 +4,10 @@
  * Module dependencies.
  */
 
-var app = require('./app');
-var debug = require('debug')('chesstourneyhub:server');
+
+var app = require('./config/app');
+var debug = require('debug')('chesstournament:server');
+
 var http = require('http');
 
 /**
