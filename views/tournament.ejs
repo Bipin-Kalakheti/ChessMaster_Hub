@@ -12,12 +12,19 @@
             <br>
             <table class="table table-bordered table-striped table-hover">
                 <!--Header-->
-@@ -23,8 +26,18 @@
+                <tr>
+                    <th class="text-center">Title</th>
+                    <th class="text-center">Type</th>
+                    <th class="text-center">Location</th>
+                    <th class="text-center">Date</th>
+                </tr>
+                      <!--Table-->
+
+                <% items.forEach(item => { %>
+                    <tr>
                       <td class="text-center"><%= item.title %></td> 
                       <td class="text-center"><%= item.type %></td> 
                       <td class="text-center"><%= item.location %></td>
-                      <td class="text-center"><%= item.date %></td>  
-                    </tr>     
                       <td class="text-center"><%= item.date %></td> 
                       <td class="text-center col-1">
                         <a href="details/<%= item._id %>" class="btn btn-primary btn-sm">
@@ -27,6 +34,7 @@
                         <a href="delete/<%= item._id %>" class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt">Delete</i></a>
                       </td>
+
                     </tr>
                          
                     <% }); %>
