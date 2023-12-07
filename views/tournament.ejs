@@ -3,41 +3,46 @@
 <%- include ('partials/main_nav.ejs') %>
 
 <main class="container">
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center my-4"><%= title %> - Chess Tournaments</h1>
 
+            <p class="text-center">Explore a diverse range of chess tournaments. Find events that match your skill level and interests, from local friendly matches to high-stakes competitions.</p>
 
-            <h1><%= title %></h1>
-            <br>
+            <!-- Tournament Table -->
             <table class="table table-bordered table-striped table-hover">
-                <!--Header-->
-                <tr>
-                    <th class="text-center">Title</th>
-                    <th class="text-center">Type</th>
-                    <th class="text-center">Location</th>
-                    <th class="text-center">Date</th>
-                </tr>
-                      <!--Table-->
-
-                <% items.forEach(item => { %>
+                <!-- Header -->
+                <thead class="thead-dark">
                     <tr>
-                      <td class="text-center"><%= item.title %></td> 
-                      <td class="text-center"><%= item.type %></td> 
-                      <td class="text-center"><%= item.location %></td>
-                      <td class="text-center"><%= item.date %></td> 
-                      
-
+                        <th class="text-center">Title</th>
+                        <th class="text-center">Type</th>
+                        <th class="text-center">Location</th>
+                        <th class="text-center">Date</th>
                     </tr>
-                         
+                </thead>
+
+                <!-- Table Body -->
+                <tbody>
+                    <% items.forEach(item => { %>
+                        <tr>
+                            <td class="text-center"><%= item.title %></td> 
+                            <td class="text-center"><%= item.type %></td> 
+                            <td class="text-center"><%= item.location %></td>
+                            <td class="text-center"><%= item.date %></td> 
+                        </tr>
                     <% }); %>
-        
+                </tbody>
             </table>
+
+            <div class="text-center">
+                <a href="/login" class="btn btn-primary">Add a Tournament</a>
+            </div>
         </div>
     </div>
 </main>
+
 
  
 <%- include ('partials/bottom_nav.ejs') %>
 
 <%- include ('partials/footer.ejs') %>
-

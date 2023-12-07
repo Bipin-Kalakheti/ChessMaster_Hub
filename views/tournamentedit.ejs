@@ -3,48 +3,57 @@
 <%- include ('partials/main_nav.ejs') %>
 
 <main class="container">
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6">
+  <div class="row justify-content-center">
+      <div class="col-md-8">
 
+          <h1 class="text-center my-4"><%= title %></h1>
+          <div class="text-center mb-3">
+              <a href="details" class="btn btn-primary">
+                  <i class="fa fa-plus"></i> Add a Tournament
+              </a>
+          </div>
 
-            <h1><%= title %></h1>
-            <a href="details" class="btn btn-primary"><i class="fa fa-plus"></i> Add a Tournament</a>
-            <br>
-            <table class="table table-bordered table-striped table-hover">
-                <!--Header-->
-                <tr>
-                    <th class="text-center">Title</th>
-                    <th class="text-center">Type</th>
-                    <th class="text-center">Location</th>
-                    <th class="text-center">Date</th>
-                </tr>
+          <!-- Tournament Table -->
+          <table class="table table-bordered table-striped table-hover">
+              <!-- Header -->
+              <thead class="thead-dark">
+                  <tr>
+                      <th class="text-center">Title</th>
+                      <th class="text-center">Type</th>
+                      <th class="text-center">Location</th>
+                      <th class="text-center">Date</th>
+                      <th class="text-center col-1">Edit</th>
+                      <th class="text-center col-1">Delete</th>
+                  </tr>
+              </thead>
 
-                <!--Table-->
-
-                <% items.forEach(item => { %>
-                    <tr>
-                      <td class="text-center"><%= item.title %></td> 
-                      <td class="text-center"><%= item.type %></td> 
-                      <td class="text-center"><%= item.location %></td>
-                      <td class="text-center"><%= item.date %></td> 
-                      <td class="text-center col-1">
-                        <a href="details/<%= item._id %>" class="btn btn-primary btn-sm">
-                        <i class="fas fa-pencil alt">Edit</i></a>
-                      </td>
-                      <td class="text-center col-1">
-                        <a href="delete/<%= item._id %>" class="btn btn-danger btn-sm">
-                        <i class="fas fa-trash-alt">Delete</i></a>
-                      </td>
-                    </tr>
-                         
-                    <% }); %>
-
-            </table>
-        </div>
-    </div>
+              <!-- Table Body -->
+              <tbody>
+                  <% items.forEach(item => { %>
+                      <tr>
+                          <td class="text-center"><%= item.title %></td> 
+                          <td class="text-center"><%= item.type %></td> 
+                          <td class="text-center"><%= item.location %></td>
+                          <td class="text-center"><%= item.date %></td> 
+                          <td class="text-center">
+                              <a href="details/<%= item._id %>" class="btn btn-primary btn-sm">
+                                  <i class="fas fa-pencil-alt"></i>
+                              </a>
+                          </td>
+                          <td class="text-center">
+                              <a href="delete/<%= item._id %>" class="btn btn-danger btn-sm">
+                                  <i class="fas fa-trash-alt"></i>
+                              </a>
+                          </td>
+                      </tr>
+                  <% }); %>
+              </tbody>
+          </table>
+      </div>
+  </div>
 </main>
 
-
+ 
 <%- include ('partials/bottom_nav.ejs') %>
 
 <%- include ('partials/footer.ejs') %>
