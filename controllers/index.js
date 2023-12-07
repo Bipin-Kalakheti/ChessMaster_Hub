@@ -26,7 +26,7 @@ module.exports.processLoginPage = function(req, res, next) {
     console.log(req.body);
 
         passport.authenticate('local')(req, res, () => {
-            res.redirect('/tourney/tournament-edit');
+            res.redirect('/tournament/tournament-edit');
         });
         // passport.authenticate('local'),(err, user, info) => {
         //     console.log("1");
@@ -91,7 +91,7 @@ module.exports.processRegisterPage = (req, res, next) => {
             //no error so redirect for authentication
 
             return passport.authenticate('local')(req, res, () => {
-                res.redirect('/tourney/tournaments');
+                res.redirect('/tournament/tournaments');
             });
         }
     })

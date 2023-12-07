@@ -20,9 +20,9 @@ router.get('/tournament', async (req, res) => {
 
 
   router.get('/tournament-edit', async (req, res) => {
-    console.log('tourney.js');
+    console.log('tournament.js');
     try {
-        const items = await Tourney.find();
+        const items = await Tournament.find();
         console.log(items);
         res.render('tournamentedit.ejs', { items, title: "Tournaments To Edit"}); // Render the EJS view and pass items as a local variable
     } catch (error) {
@@ -65,7 +65,7 @@ router.get('/tournament', async (req, res) => {
 
 //  ADD - GET the Tournament Details page in order to add a new Tournament
 router.get('/details', async (req, res, next) => {
-    console.log('tourney.js');
+    console.log('tournament.js');
     try {
         const items = await Tournament.find();
         res.render('details.ejs', {items, title: "Add Tournament"}); // Render the EJS view and pass items as a local variable
@@ -88,7 +88,7 @@ router.post('/details', async (req, res, next) => {
             "location": req.body.location,
             "date": req.body.date
         });
-        res.redirect('/tournament/tournament');
+        res.redirect('/tournament/tournament-edit');
     }
     catch(err)
     {
@@ -99,7 +99,7 @@ router.post('/details', async (req, res, next) => {
 //EDIT GET
 router.get('/details/:id', async (req, res, next) => {
     let id = req.params.id;
-    console.log('tourney.js');
+    console.log('tournament.js');
     try { 
             const items = await Tournament.findByIdAndUpdate(
                 id,
@@ -131,7 +131,7 @@ router.post('/details/:id', async (req, res, next) => {
                 "location": req.body.location,
                 "date": req.body.date
         });
-        res.redirect('/tournament/tournament');
+        res.redirect('/tournament/tournament-edit');
 
 
 } catch (error) {
@@ -151,7 +151,7 @@ router.get('/delete/:id', async (req, res, next) => {
     try 
     {
         await Tournament.findByIdAndDelete(id)
-        res.redirect('/tournament/tournament');
+        res.redirect('/tournament/tournament-edit');
     }
     catch(err)
     {
