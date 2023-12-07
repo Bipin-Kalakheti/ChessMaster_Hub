@@ -24,17 +24,7 @@ let User = mongoose.Schema(
             deafult: "",
             trim: true,
             required: 'email is required'
-        },
-        created:
-        {
-            type: Date,
-            default: Date.now
-        },
-        updated:
-        {
-            type: Date,
-            default: Date.now
-        }
+        } 
     },
     {
         collection: "users"

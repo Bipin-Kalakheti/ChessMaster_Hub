@@ -2,6 +2,8 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+
+
 //Connecting to the database model tournament
 let Tournament = require('../models/tournament');
 
@@ -17,6 +19,49 @@ router.get('/tournament', async (req, res) => {
 
 
 
+  router.get('/tournament-edit', async (req, res) => {
+    console.log('tourney.js');
+    try {
+        const items = await Tourney.find();
+        console.log(items);
+        res.render('tournamentedit.ejs', { items, title: "Tournaments To Edit"}); // Render the EJS view and pass items as a local variable
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+
+
+
+  //Authentication routes
+
+// // GET Login Page
+// router.get('/login', (req, res) => {
+//     res.render('login.ejs', { title: 'Login' });
+//   });
+
+//   // POST Login Data
+//   router.post('/login', async (req, res) => {
+
+
+//   });
+
+//   // GET Registration Page
+//   router.get('/register', (req, res) => {
+//     res.render('register.ejs', { title: 'Register' });
+//   });
+
+//   //Perform logout
+//   router.get('/logout', (req, res) =>{
+
+//   });
+
+
+
+
+
+
+//CRUD
 
 //  ADD - GET the Tournament Details page in order to add a new Tournament
 router.get('/details', async (req, res, next) => {
@@ -114,22 +159,6 @@ router.get('/delete/:id', async (req, res, next) => {
     }
 
 });
-
-// GET Login Page
-router.get('/login', (req, res) => {
-    res.render('login.ejs', { title: 'Login' });
-  });
-
-  // POST Login Data
-  router.post('/login', async (req, res) => {
-
-
-  });
-
-  // GET Registration Page
-  router.get('/register', (req, res) => {
-    res.render('register.ejs', { title: 'Register' });
-  });
 
 
 module.exports = router;
