@@ -25,23 +25,24 @@ module.exports.processLoginPage = function(req, res, next) {
     console.log("process");
     console.log(req.body);
 
-        passport.authenticate('local')(req, res, () => {
-            res.redirect('/tournament/tournament-edit');
-        });
-        // passport.authenticate('local'),(err, user, info) => {
-        //     console.log("1");
-        //   if (err) { return next(err); }
-        //   if (!user) {
-        //     console.log("1");
-        //     return res.redirect('/login');
-        //   }
-        //   req.logIn(user, function(err) {
-        //     if (err) { return next(err); }
-        //     console.log("3");
-        //     return res.redirect('/tourney/tournaments');
-        //   });
-        // };//(req, res, next);
-    }
+    passport.authenticate('local', 
+    (err,user,info) => {
+        if(err){
+            return next(err);
+        }
+        if(!user){
+            req.flash('loginMessage', 'Authentication Error');
+            console.log("not a user!");
+            return res.redirect('/login');
+        }
+        req.login(user, (err) =>{
+            //server issue
+            if(err){
+                return next(err);
+            }
+            return res.redirect('/tourney/tournament-edit');
+        })
+    })(req, res, next);
 
 //Register
 module.exports.displayRegisterPage = (req, res, next) => {
@@ -91,7 +92,8 @@ module.exports.processRegisterPage = (req, res, next) => {
             //no error so redirect for authentication
 
             return passport.authenticate('local')(req, res, () => {
-                res.redirect('/tournament/tournaments');
+                console.log("hello!");
+                res.redirect('/tourney/tournament-edit');
             });
         }
     })
