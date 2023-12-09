@@ -93,7 +93,7 @@ module.exports.processRegisterPage = (req, res, next) => {
 
             return passport.authenticate('local')(req, res, () => {
                 console.log("hello!");
-                res.redirect('/tourney/tournament-edit');
+                res.redirect('/tournament/tournament-edit');
             });
         }
     })
