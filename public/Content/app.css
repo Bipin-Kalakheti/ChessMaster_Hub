@@ -1,1 +1,139 @@
-/**All Custom CSS to go here */
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6cc;
+    color: #333;
+    margin: 0;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+/* Header Styles */
+.header {
+    background-color: #e07a5f;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Navigation Styles */
+.navbar {
+    background-color: #e07a5f;
+}
+
+.navbar a {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Jumbotron Styles */
+.jumbotron {
+    background-color: #f9c9a2;
+    color: #000000;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.jumbotron h1 {
+    font-size: 2.5em;
+}
+
+.jumbotron p {
+    font-size: 1.2em;
+}
+
+/* Form Styles */
+.form {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e07a5f;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #f4a261;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #ee8958;
+}
+
+.btn-warning {
+    background-color: #ffcc29;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e6b20d;
+}
+
+/* Table Styles */
+.table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #e07a5f;
+}
+
+.table th {
+    background-color: #f4a261;
+    /* Light coral */
+    color: #ffffff;
+}
+
+.table td {
+    background-color: #fff;
+    color: #333;
+}
+
+.table th,
+.table td {
+    text-align: center;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #e07a5f;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Additional Styles */
+.additional-content {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.additional-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}

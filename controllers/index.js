@@ -25,19 +25,19 @@ module.exports.processLoginPage = function(req, res, next) {
     console.log("process");
     console.log(req.body);
 
-    passport.authenticate('local', 
-    (err,user,info) => {
-        if(err){
+    passport.authenticate('local',
+    (err, user, info) => {
+        if (err) {
             return next(err);
         }
-        if(!user){
+        if (!user) {
             req.flash('loginMessage', 'Authentication Error');
             console.log("not a user!");
             return res.redirect('/login');
         }
-        req.login(user, (err) =>{
+        req.login(user, (err) => {
             //server issue
-            if(err){
+            if (err) {
                 return next(err);
             }
             return res.redirect('/tournament/tournament-edit');
@@ -47,16 +47,16 @@ module.exports.processLoginPage = function(req, res, next) {
 }
 //Register
 module.exports.displayRegisterPage = (req, res, next) => {
-    if(!req.user){
-        res.render('register',
+if (!req.user) {
+    res.render('register',
         {
             title: 'register',
             message: req.flash('registerMessage')
         });
-    }
-    else{
-        return res.redirect('/');
-    }
+}
+else {
+    return res.redirect('/');
+}
 
 }
 
