@@ -11,6 +11,11 @@
     "start": "node ./server.js"
 
   },
+  
+  "engines": {
+    "node": "^18.17.1",
+    "npm": "^10.1.0"
+  },
 
   "dependencies": {
 

@@ -40,10 +40,11 @@ module.exports.processLoginPage = function(req, res, next) {
             if(err){
                 return next(err);
             }
-            return res.redirect('/tourney/tournament-edit');
+            return res.redirect('/tournament/tournament-edit');
         })
     })(req, res, next);
 
+}
 //Register
 module.exports.displayRegisterPage = (req, res, next) => {
     if(!req.user){
