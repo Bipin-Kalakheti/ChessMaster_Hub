@@ -100,6 +100,10 @@ module.exports.processRegisterPage = (req, res, next) => {
 
 //Logout
 module.exports.performLogout = (req, res, next) => {
-    req.logout();
-    res.redirect('/');
-}
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect('/home');
+    });
+};
